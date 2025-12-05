@@ -41,4 +41,13 @@ Seguidamente procedemos a descargar e instalar las claves GPG de HashiCorp
     gpg --dearmor | \
     sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg*
 
+Muy importante luego de descargar, agregar los repositorios de HashiCorp
+
+*echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com   $(lsb_release -cs) main" | \
+    sudo tee /etc/apt/sources.list.d/hashicorp.list*
+
+Ahora si, luego de descargar las dependencias, las claves GPG y los repositorios, instalaremos Terraform.
+
+*sudo apt update && sudo apt install terraform -y*
+
 
